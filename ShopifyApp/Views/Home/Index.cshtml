@@ -1,0 +1,15 @@
+﻿@using ShopifySharp
+@{
+    ViewData["Title"] = "Products";
+    var shop = ViewBag.Shop as ShopifyApp.Models.Shop;
+}
+
+<h2>Products</h2>
+
+<ul>
+    @foreach (var product in (ViewBag.Products as IEnumerable<Product>))
+    {
+        <li><a href="https://@(shop.Domain)/admin/products/@(product.Id)" target="_top">@product.Title</a></li>
+    }
+</ul>
+
